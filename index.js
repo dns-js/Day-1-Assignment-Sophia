@@ -52,13 +52,13 @@ console.log("Original cart =", cart);
 function cartCalculator(cart) {
   // 1. Validation
   cart.forEach(({ qty, product }) => {
-    if (typeof qty !== "number" || qty <= 0) {
+    if (typeof qty !== "number" && qty <= 0) {
       throw new Error(
         `Qty tidak valid = ${qty}. Quantity harus lebih dari 0.`
       );
     }
 
-    if (typeof product.price !== "number" || product.price < 0) {
+    if (typeof product.price !== "number" && product.price < 0) {
       throw new Error(
         `Harga tidak valid "${product.name}"= ${product.price}. Harga harus lebih >= 0.`
       );
@@ -81,4 +81,5 @@ function cartCalculator(cart) {
   };
 }
 console.log("\n>>> STEP 5 =", cartCalculator(cart));
+
 
